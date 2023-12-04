@@ -19,10 +19,10 @@ const tarefas = {
         }
     ],
     //Adicionar uma nova tarefa à lista.
+}
+//adicionarTarefa(tarefas, "estudar")
 
-    
+console.log(tarefas)
     //Marcar uma tarefa como concluída.
     //Exibir a lista de tarefas.
     //Contar quantas tarefas estão concluídas.
-    
-}
