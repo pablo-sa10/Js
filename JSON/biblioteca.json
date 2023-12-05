@@ -1,0 +1,20 @@
+
+[{
+    "Titulo": "diario de um banana",
+    "autor": "gustavo",
+    "ano de publicação": 2015,
+    "numero de paginas": 100
+},
+{
+    "Titulo": "senhor dos aneis",
+    "autor": "leo",
+    "ano de publicação": 2000,
+    "numero de paginas": 500
+},
+{
+    "Titulo": "game of thrones",
+    "autor": "martin",
+    "ano de publicação": 1990,
+    "numero de paginas": 400
+    
+}]
