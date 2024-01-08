@@ -3,8 +3,10 @@ const nome = document.querySelector("#name");
 const email = document.querySelector("#email");
 const senha = document.querySelector("#senha");
 const confirmaSenha = document.querySelector("#confirmaSenha");
+const google = document.querySelector("#google");
+const twitter = document.querySelector("#twitter");
+const insta = document.querySelector("#insta")
 
-console.log(email)
 
 form.addEventListener("submit", (evento) => {
     evento.preventDefault();
@@ -30,7 +32,7 @@ form.addEventListener("submit", (evento) => {
     }
 
     if(!senhaIgual(senha.value, confirmaSenha.value)){
-        alert("A senha precisam ser iguais")
+        alert("As senhas precisam ser iguais")
         return;
     }
 
@@ -67,3 +69,15 @@ function senhaIgual(senha, confirmaSenha){
 
     return false;
 }
+
+google.addEventListener('click', function(){
+    window.location.href = 'https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F&ec=GAlAwAE&hl=pt_BR&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S-1190578529%3A1704732992108988&theme=glif'
+})
+
+twitter.addEventListener('click', function(){
+    window.location.href = 'https://twitter.com/i/flow/login'
+})
+
+insta.addEventListener('click', function(){
+    window.location.href = 'https://www.instagram.com/accounts/login/'
+})
