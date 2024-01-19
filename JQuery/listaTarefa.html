@@ -50,15 +50,36 @@
             </ul>
         </div>
         <div class="mt-5">
-            <div class="text-center hidden">
-                <h2>Adicionando tarefa</h2>
-                <textarea name="" id="" cols="90" rows="10" placeholder="No que vc está trabalhando?"></textarea>
+            <div id="textarea">
+                <div class="text-center">
+                    <h2>Adicionando tarefa</h2>
+                    <textarea name="" id="" cols="90" rows="10" placeholder="No que vc está trabalhando?"></textarea>
+                </div>
+                <div class="text-end">
+                    <button id="salvar" class="text-end btn btn-light border 
+                border-dark">Salvar</button>
+                </div>
             </div>
             <div class="text-center">
-                <button class="my-3 adicionar btn btn-light border border-dark">Adicionar nova tarefa</button>
+                <button id="btnAdicionar" class="my-3 adicionar btn btn-light border border-dark">Adicionar nova
+                    tarefa</button>
             </div>
         </div>
     </section>
 </body>
+
+<script>
+    $(document).ready(() => {
+
+        $('#btnAdicionar').click(() => {
+            $('#textarea').toggleClass('d-none')
+        })
+
+        $('salvar').click((event)=>{
+            $('#textarea').val()
+        })
+
+    })
+</script>
 
 </html>
