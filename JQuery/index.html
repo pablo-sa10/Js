@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(()=>{
+            let btn_somarjs = document.getElementById('btn_somarjs')
+        btn_somarjs.addEventListener('click', function () {
+            let v1 = document.getElementById('v1').value
+            let v2 = document.getElementById('v2').value
+            let soma = parseInt(v1) + parseInt(v2)
+            let resultado = document.getElementById('resultado').value = soma
+        })
+
+        $('#btn_somarjq').click(() => {
+            let v1 = parseInt($('#v1').val())
+            let v2 = parseInt($('#v2').val())
+            let soma = v1 + v2
+            $('#resultado').val(soma)
+        })
+
+        $('.bloco').click(()=>{
+            $('.texto').text('CALCULADORA DO PABLO');
+            $('#calc').html(`
+                <label for="">Valor 1</label>
+            `)
+        })
+        })
+    </script>
+
+    <style>
+        .bloco{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            border-radius: 100px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .texto{
+            font-weight: 1000;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bloco">
+    </div>
+
+
+    <p class="texto"></p>
+
+
+    <div id="calc">
+        <label for="">Valor 1</label>
+        <input type="text" id="v1" value="">
+        <br><br>
+
+        <label for="">Valor 2</label>
+        <input type="text" id="v2" value="">
+        <br><br>
+
+        <label for="">Resultado</label>
+        <input type="text" id="resultado" value="">
+        <br><br>
+
+        <button id="btn_somarjs">Somar JS</button>
+        <button id="btn_somarjq">Somar JQ</button>
+    </div>
+</body>
+
+</html>
