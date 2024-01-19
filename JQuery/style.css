@@ -1,0 +1,15 @@
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.remover{
+    margin-left:10px;
+}
+
+.editar{
+    margin-left:500px;
+}

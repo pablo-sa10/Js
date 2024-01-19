@@ -7,34 +7,9 @@
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(()=>{
-            let btn_somarjs = document.getElementById('btn_somarjs')
-        btn_somarjs.addEventListener('click', function () {
-            let v1 = document.getElementById('v1').value
-            let v2 = document.getElementById('v2').value
-            let soma = parseInt(v1) + parseInt(v2)
-            let resultado = document.getElementById('resultado').value = soma
-        })
-
-        $('#btn_somarjq').click(() => {
-            let v1 = parseInt($('#v1').val())
-            let v2 = parseInt($('#v2').val())
-            let soma = v1 + v2
-            $('#resultado').val(soma)
-        })
-
-        $('.bloco').click(()=>{
-            $('.texto').text('CALCULADORA DO PABLO');
-            $('#calc').html(`
-                <label for="">Valor 1</label>
-            `)
-        })
-        })
-    </script>
 
     <style>
-        .bloco{
+        .bloco {
             width: 100px;
             height: 100px;
             background-color: black;
@@ -43,11 +18,89 @@
             cursor: pointer;
         }
 
-        .texto{
+        .texto {
             font-weight: 1000;
             font-style: italic;
         }
+
+        .fundoVerm {
+            background-color: red;
+        }
+
+        .fundoVerd {
+            background-color: green;
+        }
+
+        .fundoAzul {
+            background-color: blue;
+        }
     </style>
+
+    <script>
+        $(document).ready(() => {
+            let btn_somarjs = document.getElementById('btn_somarjs')
+            btn_somarjs.addEventListener('click', function () {
+                let v1 = document.getElementById('v1').value
+                let v2 = document.getElementById('v2').value
+                let soma = parseInt(v1) + parseInt(v2)
+                let resultado = document.getElementById('resultado').value = soma
+            })
+
+            $('#btn_somarjq').click(() => {
+                let v1 = parseInt($('#v1').val())
+                let v2 = parseInt($('#v2').val())
+                let soma = v1 + v2
+                $('#resultado').val(soma)
+            })
+
+            $('.bloco').on({
+                click: () => {
+                    $('#calc').hide()
+                },
+                dblclick: () => {
+                    $('#calc').show()
+                }
+            })
+
+            /* $('.bloco').click(() => {
+                $('.texto').text('CALCULADORA DO PABLO');
+                $('#calc').html(`
+                Matemática com JQuery
+            `)
+            })
+
+            $('.bloco').mouseenter(() => {
+                $('.texto').text('entrou no círculo');
+            })
+
+            $('.bloco').mouseleave(() => {
+                $('.texto').text('saiu do círculo');
+            }) */
+
+
+            $('#vermelho').click(() => {
+                $('#fundo').addClass('fundoVerm')
+                $('#fundo').removeClass('fundoVerd')
+                $('#fundo').removeClass('fundoAzul')
+            })
+
+            $('#verde').click(() => {
+                $('#fundo').addClass('fundoVerd')
+                $('#fundo').removeClass('fundoVerm')
+                $('#fundo').removeClass('fundoAzul')
+            })
+
+            $('#azul').click(() => {
+                $('#fundo').addClass('fundoAzul')
+                $('#fundo').removeClass('fundoVerm')
+                $('#fundo').removeClass('fundoVerd')
+            })
+
+            $('#event').click((event) =>{
+             $('#nomeCompleto').text('objeto clicado: ' + event.target.innerHTML)
+            }) 
+        })
+    </script>
 </head>
 
 <body>
@@ -74,6 +127,33 @@
 
         <button id="btn_somarjs">Somar JS</button>
         <button id="btn_somarjq">Somar JQ</button>
+    </div>
+
+    <br>
+    <hr>
+
+
+    <div id="fundo" style="padding: 10px; text-align: center;">
+        <button id="vermelho">
+            vermelho
+        </button>
+
+        <button id="verde">
+            verde
+        </button>
+
+        <button id="azul">
+            azul
+        </button>
+    </div>
+
+    <hr>
+    <br>
+
+    <div id="event">
+        <p id="texto">Pablo</p>
+        <p id="texto2">Roberto</p>
+        <p id="nomeCompleto"></p>
     </div>
 </body>
 
