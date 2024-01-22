@@ -1,0 +1,42 @@
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+}
+
+#circulo1{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    position: absolute;
+    border: 2px solid black;
+    background-color: black;
+}
+
+#circulo2{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    position: absolute;
+    border: 2px solid white;
+    margin-right: 30px;
+}
+
+#head{
+    background-color: #e6745f;
+    border-radius: 25px;
+    border: #e6745f;
+}
+
+.texto{
+    font-size: 40px;
+    font-weight: 500;
+}
+
+#grafico{
+    border: #fffcf7;
+    background-color: #fffcf7;
+    border-radius: 25px;
+}

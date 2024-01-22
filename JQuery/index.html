@@ -96,9 +96,17 @@
                 $('#fundo').removeClass('fundoVerd')
             })
 
-            $('#event').click((event) =>{
-             $('#nomeCompleto').text('objeto clicado: ' + event.target.innerHTML)
-            }) 
+            $('#event').click((event) => {
+                $('#nomeCompleto').text('objeto clicado: ' + event.target.innerHTML)
+            })
+
+            $('#event').find('p').css({ 'border': '1px solid red' })
+
+            //filtragem
+            $('.filtro').find('h3').first().css({'border':'10px solid'})
+            $('.filtro').find('h3').last().css({'border':'10px solid red'})
+            $('.filtro').find('p').eq(2).css({'border':'10px solid blue'})
+
         })
     </script>
 </head>
@@ -155,6 +163,26 @@
         <p id="texto2">Roberto</p>
         <p id="nomeCompleto"></p>
     </div>
+
+    <hr>
+
+    <div class="filtro">
+        <p>pablo</p>
+        <h3>pablo</h3>
+
+        <p>maria</p>
+        <h3>maria</h3>
+
+        <p>celta</p>
+        <h3>celta</h3>
+
+        <p>ps5</p>
+        <h3>ps5</h3>
+
+        <p>diogo</p>
+        <h3>diogo</h3>
+    </div>
+
 </body>
 
 </html>
