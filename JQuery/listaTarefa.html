@@ -19,8 +19,8 @@
             <ul id="listaTarefa">
                 <li class="my-2">Tarefa de exemplo
                     <div class="d-flex">
-                        <button class="editar btn btn-light border border-dark">Editar</button>
-                        <button class="remover btn btn-light border border-dark">Remover</button>
+                        <button class="exEditar btn btn-light border border-dark">Editar</button>
+                        <button class="exRemover btn btn-light border border-dark">Remover</button>
                     </div>
                 </li>
             </ul>
@@ -61,6 +61,10 @@
         function criarElemento(tarefa) {
             const li = $(`<li class="my-2">${tarefa.descricao}
                     <div class="d-flex">
+                        <button class="check btn btn-light border border-dark"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                        <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
+                        </svg></button>
+
                         <button class="editar btn btn-light border border-dark">Editar</button>
                         <button class="remover btn btn-light border border-dark">Remover</button>
                     </div>
@@ -68,6 +72,7 @@
 
             const editar = li.find('.editar')
             const remover = li.find('.remover')
+            const check = li.find('.check')
 
             editar.click(() => {
                 const novaDescricao = prompt('Qual a nova tarefa?')
@@ -80,6 +85,14 @@
 
             remover.click(() => {
                 li.remove()
+                atualizarTarefas()
+            })
+
+            check.click(() =>{
+                li.addClass('verde')
+                remover.remove()
+                editar.remove()
+                check.remove()
                 atualizarTarefas()
             })
 
