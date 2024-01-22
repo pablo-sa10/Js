@@ -14,34 +14,10 @@
 
 <body>
     <section class="container border">
-        <h1 class="text-center">Lista de Tarefas</h1>
+        <h1 class="my-3 text-center">Lista de Tarefas</h1>
         <div>
-            <ul class="lista">
-                <li class="my-2">tarefa 1
-                    <div class="d-flex">
-                        <button class="editar btn btn-light border border-dark">Editar</button>
-                        <button class="remover btn btn-light border border-dark">Remover</button>
-                    </div>
-                </li>
-                <li class="my-2">tarefa 2
-                    <div class="d-flex">
-                        <button class="editar btn btn-light border border-dark">Editar</button>
-                        <button class="remover btn btn-light border border-dark">Remover</button>
-                    </div>
-                </li>
-                <li class="my-2">tarefa 3
-                    <div class="d-flex">
-                        <button class="editar btn btn-light border border-dark">Editar</button>
-                        <button class="remover btn btn-light border border-dark">Remover</button>
-                    </div>
-                </li>
-                <li class="my-2">tarefa 4
-                    <div class="d-flex">
-                        <button class="editar btn btn-light border border-dark">Editar</button>
-                        <button class="remover btn btn-light border border-dark">Remover</button>
-                    </div>
-                </li>
-                <li class="my-2">tarefa 5
+            <ul id="listaTarefa">
+                <li class="my-2">Tarefa de exemplo
                     <div class="d-flex">
                         <button class="editar btn btn-light border border-dark">Editar</button>
                         <button class="remover btn btn-light border border-dark">Remover</button>
@@ -49,21 +25,25 @@
                 </li>
             </ul>
         </div>
-        <div class="mt-5">
-            <div id="textarea">
-                <div class="text-center">
-                    <h2>Adicionando tarefa</h2>
-                    <textarea name="" id="" cols="90" rows="10" placeholder="No que vc está trabalhando?"></textarea>
-                </div>
-                <div class="text-end">
-                    <button id="salvar" class="text-end btn btn-light border 
+        <form class="lista">
+            <div class="mt-5">
+                <div id="divTextarea" class="d-none">
+                    <div class="text-center">
+                        <h2>Adicionando tarefa</h2>
+                        <textarea name="" id="textarea" cols="90" rows="10"
+                            placeholder="No que vc está trabalhando?"></textarea>
+                    </div>
+                    <div class="text-end">
+                        <button id="salvar" class="text-end btn btn-light border 
                 border-dark">Salvar</button>
+                    </div>
                 </div>
-            </div>
-            <div class="text-center">
-                <button id="btnAdicionar" class="my-3 adicionar btn btn-light border border-dark">Adicionar nova
-                    tarefa</button>
-            </div>
+        </form>
+        <div class="text-center">
+            <button type="button" id="btnAdicionar" class="my-3 adicionar btn btn-light border border-dark">Adicionar
+                nova
+                tarefa</button>
+        </div>
         </div>
     </section>
 </body>
@@ -71,12 +51,67 @@
 <script>
     $(document).ready(() => {
 
+        const tarefas = JSON.parse(localStorage.getItem('Tarefas')) || []
+
+        //funções
+        function atualizarTarefas() {
+            localStorage.setItem('Tarefas', JSON.stringify(tarefas))
+        }
+
+        function criarElemento(tarefa) {
+            const li = $(`<li class="my-2">${tarefa.descricao}
+                    <div class="d-flex">
+                        <button class="editar btn btn-light border border-dark">Editar</button>
+                        <button class="remover btn btn-light border border-dark">Remover</button>
+                    </div>
+                </li>`);
+
+            const editar = li.find('.editar')
+            const remover = li.find('.remover')
+
+            editar.click(() => {
+                const novaDescricao = prompt('Qual a nova tarefa?')
+                if (novaDescricao) {
+                    tarefa.descricao = novaDescricao
+                    li.text(novaDescricao)
+                    atualizarTarefas()
+                }
+            })
+
+            remover.click(() => {
+                li.remove()
+                atualizarTarefas()
+            })
+
+            return li
+        }
+
+        function deletar() {
+
+        }
+
+        //metodos
         $('#btnAdicionar').click(() => {
-            $('#textarea').toggleClass('d-none')
+            $('#divTextarea').toggleClass('d-none')
         })
 
-        $('salvar').click((event)=>{
-            $('#textarea').val()
+        $('.lista').submit((event) => {
+            event.preventDefault();
+
+            const tarefa = {
+                descricao: $('#textarea').val()
+            }
+            tarefas.push(tarefa)
+            const elementoTarefa = criarElemento(tarefa)
+            $('#listaTarefa').append(elementoTarefa)
+            atualizarTarefas()
+            $('#textarea').val('')
+            $('.lista').addClass('hidden')
+        })
+
+        tarefas.forEach(tarefa => {
+            const elementoTarefa = criarElemento(tarefa)
+            $('#listaTarefa').append(elementoTarefa)
         })
 
     })
