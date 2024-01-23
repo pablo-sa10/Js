@@ -40,3 +40,18 @@ body{
     background-color: #fffcf7;
     border-radius: 25px;
 }
+
+#input{
+    background-color: #e6745f;
+    border: #e6745f;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+
+}
+
+#input::placeholder{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+}

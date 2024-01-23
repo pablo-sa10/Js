@@ -9,21 +9,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-    <script src="./main.js"> defer</script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
     integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./main.js" defer></script>
+    
 </head>
 
 <body style="background-color: #f6eadd;">
-    
-    <section class="container col-lg-6">
+
+    <section class="container col-lg-4 col-md-9">
         <div id="head" class="mb-3 py-4 px-0">
             <div class="col-12">
-                <div class="mx-5 my-2 d-flex row">
+                <div class="mx-4 my-2 d-flex row">
                     <div class="col-9 text-white">
-                        <h5>My balance</h5>
-                        <h1>$940.48</h1>
+                        <h5 style="margin-left: 15px;">My balance</h5>
+                        <input id="input" type="number" class="form-control w-50 h-50" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="$0.00">
+                        <button id="botao" class="btn border">click</button>
                     </div>
                     <div class="d-flex justify-content-end col-3">
                         <div id="circulo1" class="text-end my-3 circulo"></div>
@@ -37,54 +39,25 @@
             <div class="row">
                 <div class="texto col-12 mx-4 mb-4">Spending - Last 7 Days</div>
 
-                <div>
-                    <canvas id="meuGrafico" class="col-12 border" height="100"></canvas>
+                <div class="mb-4">
+                    <canvas id="meuGrafico" class="col-12" height="300"></canvas>
                 </div>
             </div>
-        </div>
+
+            <hr>
+
+            <div class="container mb-3">
+                <div class="d-flex row">
+                    <div class="col-8">
+                        <h5 class="m-0" style="font-size: 15px; color: #a39e98;">Total this month</h5>
+                        <h1 id="saldo" class="m-0" style="font-size: 50px; font-weight: bold; color: #362112;">$478.33</h1>
+                    </div>
+                    <div class="col-4" style="margin-top: 35px;">
+                        <h6 class="text-end m-0 " style="color: #362112; font-weight: bold;">+2.4%</h6>
+                        <h6 class="text-end m-0" style="color: #a39e98;">from last month</h6>
+                    </div>
+                </div>
+            </div>
     </section>
 </body>
-
-<script>
-    
-    async function obterDados(){
-        const resposta = await fetch('./expenses-chart-component-main/data.json');
-        const dados = await resposta.json();
-        return dados.dias;
-    }
-
-    console.log(obterDados())    
-
-    async function grafico(){
-        const dados = await obterDados();
-
-        const labels = dados.map(item => item.day); 
-        const valores = dados.map(item => item.amount);
-
-        const ctx = $('#meuGrafico').getContext('2d');
-
-        const grafico = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Valores por dias',
-                    data: valores,
-                    backgroundcolor: 'black',
-                    borderColor: 'black',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales:{
-                    y:{
-                        beginAtZero: true
-                    }
-                }
-            }
-        })
-    }
-
-    grafico();
-</script>
 </html>
