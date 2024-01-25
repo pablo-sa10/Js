@@ -1,0 +1,44 @@
+[
+    {
+        "nome": "Pablo",
+        "idade": 21,
+        "etsa_trabalhando?": true,
+        "endereco": {
+            "cidade": "alfredo marconde",
+            "bairro": "cohab",
+            "rua": "Luis gonzaga",
+            "numero": 100
+        },
+        "hobbies": [
+            "academia",
+            "programar",
+            "ler"
+        ]
+    },
+
+    {
+        "nome": "Gustavo",
+        "idade": 15,
+        "etsa_trabalhando?": false,
+        "endereco":{
+            "cidade": "alfredo marconde",
+            "bairro": "cohab",
+            "rua": "bartolomeu",
+            "numero": 12
+        },
+        "hobbies": ["dormir", "comer"]
+    },
+
+    {
+        "nome": "maria",
+        "idade": 30,
+        "etsa_trabalhando?": true,
+        "endereco":{
+            "cidade": "Prudente",
+            "bairro": "Barcelona",
+            "rua": "villa real",
+            "numero": 225
+        },
+        "hobbies": ["correr", "assistir"]
+    }
+]

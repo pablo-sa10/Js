@@ -1,3 +1,22 @@
+const input = document.getElementById('input')
+const saldo = document.getElementById('saldo')
+
+input.addEventListener('input', () => {
+    const userInput = parseFloat(input.value) || 0;
+
+    fetch('./expenses-chart-component-main/data.json')
+        .then(response => response.json())
+        .then(valoresJSON => {
+            const total = valoresJSON.reduce((total, item) => total + item.amount, 0)
+
+            const resultado = userInput - total;
+            saldo.textContent = `$${resultado.toFixed(2)}`
+        })
+
+})
+
+
+
 //pegar valores do json
 async function obterDados() {
     const resposta = await fetch('./expenses-chart-component-main/data.json');
@@ -56,25 +75,3 @@ async function grafico() {
 }
 
 grafico();
-
-
-
-$(document).ready(() => {
-
-    let balanco = $('#input')
-    const saldo = $('#saldo')
-    
-    $('#botao').click(function () { 
-        calculo()
-        
-    });
-
-    function calculo(){
-        let novoBalanco = parseFloat(balanco.value)
-        const novoSaldo = saldo
-
-        console.log()
-    }
-
-    calculo()
-})  

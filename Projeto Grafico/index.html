@@ -10,10 +10,10 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <script src="https://code.jquery.com/jquery-3.7.1.js"
-    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./main.js" defer></script>
-    
+
 </head>
 
 <body style="background-color: #f6eadd;">
@@ -24,8 +24,9 @@
                 <div class="mx-4 my-2 d-flex row">
                     <div class="col-9 text-white">
                         <h5 style="margin-left: 15px;">My balance</h5>
-                        <input id="input" type="number" class="form-control w-50 h-50" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="$0.00">
-                        <button id="botao" class="btn border">click</button>
+                        <input id="input" type="number" step="0.01" name="quantity" min="0.00"
+                            class="form-control w-50 h-50" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-lg" placeholder="$0.00">
                     </div>
                     <div class="d-flex justify-content-end col-3">
                         <div id="circulo1" class="text-end my-3 circulo"></div>
@@ -50,7 +51,8 @@
                 <div class="d-flex row">
                     <div class="col-8">
                         <h5 class="m-0" style="font-size: 15px; color: #a39e98;">Total this month</h5>
-                        <h1 id="saldo" class="m-0" style="font-size: 50px; font-weight: bold; color: #362112;">$478.33</h1>
+                        <h1 id="saldo" class="m-0" style="font-size: 50px; font-weight: bold; color: #362112;">$0.00
+                        </h1>
                     </div>
                     <div class="col-4" style="margin-top: 35px;">
                         <h6 class="text-end m-0 " style="color: #362112; font-weight: bold;">+2.4%</h6>
@@ -60,4 +62,12 @@
             </div>
     </section>
 </body>
+
+<script>
+
+    
+
+    
+</script>
+
 </html>
