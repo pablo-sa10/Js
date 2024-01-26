@@ -15,3 +15,31 @@ body{
 ul{
     list-style-type: none;
 }
+
+li{
+    padding-left: 20px; background-color:  rgb(230, 237, 255);
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#check, 
+#edit,
+#delete{
+    background-color: rgb(126, 126, 241);
+    color: white;
+    transition: 0.5s;
+}
+
+#check:hover, 
+#edit:hover,
+#delete:hover{
+    background-color: rgb(55, 55, 231);
+}
+
+.concluido{
+    background-color: greenyellow;
+}
+
+.hide{
+    display: none;
+}
